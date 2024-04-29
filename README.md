@@ -51,6 +51,8 @@ Now after logging out you will see the login page. In the login page give ganesh
 ![eth8 9](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/94b8269e-49fa-49e8-a560-d399fcea9670)
 
 Click the login button and you will see it enter into the administrator page.
+![eth 8 28](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/2d9ec1d5-ab4e-41e3-ba27-ad555172bbe7)
+
 ## Union-based SQL injection:
 UNION-based SQL injection assaults enable the analyzer to extract data from the database effectively. Since the “UNION” operator must be utilized if the two inquiries have precisely the same structure, the attacker must craft a “SELECT” statement like the first inquiry. we will be using the “User Info” page from Mutillidae to perform a Union-Based SQL injection attack. Go to “OWASP Top 10/A1 — Injection/SQLi — Extract-Data/User Info”
 
