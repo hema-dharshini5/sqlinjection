@@ -64,6 +64,9 @@ Since we do not know the number of columns, we start at 1. To find the exact amo
 The browser url of this info page need to be modified with the url as below:
 
 http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27order%20by%206%23&password=&user-info-php-submit-button=View+Account+Details
-
+![eth 8 16](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/7c4d0179-0d0b-4de7-b23c-aa2c6c1d78f2)
+After adding the order by 6 into the existing url , the following error statement will be obtained:
+![eth 8 17](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/200b0f88-00af-4877-a112-c07dfc9ae425)
+When we ordered by 5, it worked and displayed some information. It means there are five columns that we can work with. Following screenshot shows that the url modified to have statement added with ordered by 5 replacing 6.
 ## RESULT:
 The SQL Injection vulnerability is successfully exploited using the Multidae web application in Metasploitable2.
