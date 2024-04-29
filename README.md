@@ -68,5 +68,22 @@ http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%2
 After adding the order by 6 into the existing url , the following error statement will be obtained:
 ![eth 8 17](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/200b0f88-00af-4877-a112-c07dfc9ae425)
 When we ordered by 5, it worked and displayed some information. It means there are five columns that we can work with. Following screenshot shows that the url modified to have statement added with ordered by 5 replacing 6.
+![eth 8 18](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/a6e24728-1238-41dd-bae2-f09b7b8a7db8)
+As it is having 5 columns the query worked fine and it provides the correct result
+![eth 8 19](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/532dffdf-3d42-40c6-b775-5b7429696bc8)
+
+Instead of using the "order by" option, let’s use the "union select" option and provide all five columns. Ex: (union select 1,2,3,4,5)
+![eth 8 20](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/b6b69a95-b8a5-4fe9-bcff-4a7315f24769)
+As given in the screenshot below columns 2,3,4 are usable in which we can substitute any sql commands to extract necessary information.
+![eth 8 21](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/b93c11a0-a12c-4cab-87fc-fa521adf9d28)
+Now we will substitute some few commands like database(), user(), version() to obtain the information regarding the database name, username and version of the database.
+
+http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,database(),user(),version(),5%23&password=&user-info-php-submit-button=View+Account+Details
+![eth 8 22](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/2328344d-084c-4585-b51e-a9009d8b9b4a)
+The url when executed, we obtain the necessary information about the database name owasp10, username as root@localhost and version as 5.0.51a-3ubuntu5. In MySQL, the table “information_schema.tables” contains all the metadata identified with table items. Below is listed the most useful information on this table.
+
+Replace the query in the url with the following one: union select 1,table_name,null,null,5 from information_schema.tables where table_schema = ‘owasp10’
+
+http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=praveen%27union%20select%201,table_name,null,null,5%20from%20information_schema.tables%20where%20table_schema=%27owasp10%27%23&password=&user-info-php-submit-button=View+Account+Details
 ## RESULT:
 The SQL Injection vulnerability is successfully exploited using the Multidae web application in Metasploitable2.
