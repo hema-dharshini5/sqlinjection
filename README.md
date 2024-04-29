@@ -57,11 +57,17 @@ Click the login button and you will see it enter into the administrator page.
 UNION-based SQL injection assaults enable the analyzer to extract data from the database effectively. Since the “UNION” operator must be utilized if the two inquiries have precisely the same structure, the attacker must craft a “SELECT” statement like the first inquiry. we will be using the “User Info” page from Mutillidae to perform a Union-Based SQL injection attack. Go to “OWASP Top 10/A1 — Injection/SQLi — Extract-Data/User Info”
 
 After logging out, Now choose the menu as shown below: img
-![eth8 10](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/d0bd94c2-7608-4c5e-814e-0d3f11556864)
-![eth 8 11](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/06a06b44-98d2-4977-906f-a4a533ab7bfd)
-![eth 8 11](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/33334541-8789-40eb-a38d-22b3b11c43f6)
-![eth8 13](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/ea79fdde-b333-4f21-8750-0b7e7bd20be2)
-![eth 8 14](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/9370ac48-4c90-4849-af4b-f807d959a88c)
+![img](Screenshot_2023-06-10_13_13_23.png)
+![Screenshot 2023-06-10 224221](https://github.com/praveenst13/sqlinjection/assets/118787793/123993df-2a2b-455f-abde-8904a72314dd)
+
+
+![Screenshot 2023-06-10 224420](https://github.com/praveenst13/sqlinjection/assets/118787793/9b365f7e-d511-4ff4-a5fb-d33ee779cb86)
+
+![Screenshot 2023-06-10 224452](https://github.com/praveenst13/sqlinjection/assets/118787793/7b70cf08-aa04-4ba1-b7e5-12f048c98c57)
+
+![Screenshot 2023-06-10 224520](https://github.com/praveenst13/sqlinjection/assets/118787793/713a7087-4c4a-49a0-8c23-92af437df4b1)
+
+![Screenshot 2023-06-10 224530](https://github.com/praveenst13/sqlinjection/assets/118787793/a242176f-df4f-4eb2-8296-0671fd7d7264)
 From this point, all our attack vectors will be performed in the URL section of the page using the Union-Based technique.There are two different ways to discover how many columns are selected by the original query. The first is to infuse an “ORDER BY” statement indicating a column number. Given the column number specified is higher than the number of columns in the “SELECT” statement, an error will be returned.
 ![eth 8 15](https://github.com/hema-dharshini5/sqlinjection/assets/147117728/d8b5f209-54a7-4e9c-a506-be4d04a092b9)
 Since we do not know the number of columns, we start at 1. To find the exact amount of columns, the number is incremented until an error related to the “ORDER BY” clause is returned. In this example, we incremented it to 6 and received an error message, so it means that the number of columns is lower than 6.
